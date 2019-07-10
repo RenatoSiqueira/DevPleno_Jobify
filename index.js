@@ -9,7 +9,7 @@ const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Prom
 const port = process.env.PORT || 3000
 
 app.use('/admin', (req, res, next) => {
-    if (req.hostname === 'localhost')
+    if (req.hostname !== 'localhost')
         next()
     else
         res.send('Não Permitido.')
